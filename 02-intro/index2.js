@@ -1,4 +1,4 @@
-console.log('Starting Server')
+console.log('Starting HTTP Server')
 
 const http = require('http');
 

@@ -10,7 +10,7 @@ const path = require('path')
 const config = require(path.resolve(__dirname,'config/default'));
 
 // Load user route definitions
-const userRoutes = require(path.resolve(__dirname,'routes/user-routes'));
+const users = require(path.resolve(__dirname,'controllers/users'));
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -33,14 +33,14 @@ router.get("/", function(req, res) {
 
 router
   .route("/users")
-  .get(userRoutes.getUsers)
-  .post(userRoutes.postUser)
-  .put(userRoutes.updateUser);
+  .get(users.getUsers)
+  .post(users.postUser)
+  .put(users.updateUser);
 
 router
   .route("/users/:id")
-  .get(userRoutes.getUser)
-  .delete(userRoutes.deleteUser);
+  .get(users.getUser)
+  .delete(users.deleteUser);
 
 // All routes will be prefixed with /api
 app.use("/api", router);

@@ -1,7 +1,8 @@
-const Users = require("../model/users");
+// Load Models
+const Users = require("../models/users");
 
+// Defines Controller functions
 function getUsers(req, res) {
-  // Obtain the list of users
   const users = Users.getAllUsers();
   res.json(users);
 }

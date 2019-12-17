@@ -2,15 +2,16 @@ const express = require("express");
 const app = express();
 // To allow body to be parsed
 const bodyParser = require("body-parser");
+// Set the port
+const port = 8080;
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var users = {};
 users[1] = { id: 1, name: "Jos Jones" };
-
-app.listen(8080, () => {
-  console.log("Server Running - http://localhost:8080");
-});
 
 // Get a user by id
 app.get("/user/:id", (req, res) => {
@@ -25,7 +26,7 @@ app.get("/users/list", (req, res) => {
   res.json(users);
 });
 
-// Add a user
+// Use Post to add a user
 app.post("/users", (req, res) => {
   console.log("post", req.body);
   const user = req.body;
@@ -33,7 +34,7 @@ app.post("/users", (req, res) => {
   res.send("User added");
 });
 
-// Update a User
+// Use Put to update a User
 app.put("/users", (req, res) => {
   console.log("put", req.body);
   const user = req.body;
@@ -46,4 +47,9 @@ app.delete("/users/:id", (req, res) => {
   const id = req.params.id;
   delete users[id];
   res.send("User deleted");
+});
+
+// Finally start the server listening on the default port
+app.listen(port, () => {
+  console.log("Server Running - http://localhost:8080");
 });

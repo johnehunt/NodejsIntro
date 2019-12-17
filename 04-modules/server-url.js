@@ -1,9 +1,10 @@
 console.log("Starting HTTP Server");
 
+// Load required modules
 const http = require("http");
-
 const url = require("url");
 
+// Set up server
 const server = http.createServer(function(req, res) {
   console.log("Handling", req.url);
 
@@ -26,7 +27,7 @@ const server = http.createServer(function(req, res) {
   res.end();
 });
 
-console.log("Listening on port 8080");
+console.log("Server Listening on port 8080");
 server.listen(8080);
 
 console.log("Started");

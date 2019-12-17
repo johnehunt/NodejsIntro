@@ -2,37 +2,35 @@
 const Users = require("../models/users");
 
 // Defines Controller functions
-function getUsers(req, res) {
-  const users = Users.getAllUsers();
+async function getUsers(req, res) {
+  const users = await Users.getAllUsers();
   res.json(users);
 }
 
-function postUser(req, res) {
+async function postUser(req, res) {
   console.log("postUser", req.body);
   const user = req.body;
-  Users.addUser(user);
+  await Users.addUser(user);
   res.send("User added");
 }
 
-function updateUser(req, res) {
+async function updateUser(req, res) {
   console.log("updateUser", req.body);
   const user = req.body;
-  Users.updateUser(user);
+  await Users.updateUser(user);
   res.send("User updated");
 }
 
-function getUser(req, res) {
-  res.json({
-    id: req.params.id,
-    name: "John Hunt"
-  });
+async function getUser(req, res) {
+  const user = await Users.getUserById(req.params.id);
+  return user;
 }
 
-function deleteUser(req, res) {
-    const id = req.params.id;
-  Users.deleteUser(id);
+async function deleteUser(req, res) {
+  const id = req.params.id;
+  await Users.deleteUser(id);
   res.send("User deleted");
 }
 
 // Now export functions from module
-module.exports = {getUsers, getUser, postUser, updateUser, deleteUser}
+module.exports = { getUsers, getUser, postUser, updateUser, deleteUser };

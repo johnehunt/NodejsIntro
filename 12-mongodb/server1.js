@@ -1,8 +1,11 @@
-const mongo = require('mongodb');
+const mongo = require("mongodb");
 const client = mongo.MongoClient;
-const url = "mongodb://localhost:27017/mydb";
+const url = "mongodb://localhost:27017";
 
-client.connect(url, function(err, db) {
+// {useUnifiedTopology: true},  - ensures new server discovery and monitoring engine is used 
+// original is deprecated but used by default
+
+client.connect(url, {useUnifiedTopology: true}, function(err, db) {
   if (err) throw err;
   console.log("Database created!");
   db.close();

@@ -1,5 +1,7 @@
 console.log("Starting HTTP Server");
-// Load in http module
+// Load required http module - note naming convention
+// const holding reference to module is named after the
+// module itself
 const http = require("http");
 
 const server = http.createServer(function(req, res) {

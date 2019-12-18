@@ -1,4 +1,4 @@
-// ES6
+// ES6 - arrow function
 var obj = {
   id: 42,
   counter: function counter() {

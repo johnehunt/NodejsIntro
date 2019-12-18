@@ -1,4 +1,4 @@
-// ES5
+// ES5 - named function
 var obj = {
   id: 42,
   counter: function counter() {

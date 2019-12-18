@@ -17,7 +17,7 @@ const server = http.createServer(function(req, res) {
 
 async function asyncUserDetailsCall(resp) {
   console.log("calling");
-  var userDetails = await getUserDetails();
+  const userDetails = await getUserDetails();
   console.log("Obtained user details", userDetails);
   // Write details back to client
   resp.write(
@@ -28,7 +28,7 @@ async function asyncUserDetailsCall(resp) {
 
 function getUserDetails() {
   // Setting URL and headers for request from guthub
-  var options = {
+  const options = {
     url: "https://api.github.com/users/johnehunt",
     headers: {
       "User-Agent": "request"

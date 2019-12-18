@@ -1,5 +1,5 @@
 console.log("Starting HTTP Server");
-
+// Load in http module
 const http = require("http");
 
 const server = http.createServer(function(req, res) {
@@ -11,4 +11,3 @@ console.log("Listening on port 8080");
 server.listen(8080);
 
 console.log("Started - use http://localhost:8080/");
-ß

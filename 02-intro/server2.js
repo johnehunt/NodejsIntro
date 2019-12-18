@@ -11,5 +11,4 @@ const server = http.createServer(function(req, res) {
 console.log("Listening on port 8080");
 server.listen(8080);
 
-console.log("Started");
-ß
+console.log("Started - use http://localhost:8080/");

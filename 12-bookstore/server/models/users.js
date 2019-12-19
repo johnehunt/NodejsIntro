@@ -12,15 +12,14 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //Define a schema
-var Schema = mongoose.Schema;
-
-var UserModelSchema = new Schema({
+const Schema = mongoose.Schema;
+const UserModelSchema = new Schema({
   id: Number,
   name: String
 });
 
 // Compile model from schema
-var UserModel = mongoose.model("UserModel", UserModelSchema);
+const UserModel = mongoose.model("UserModel", UserModelSchema);
 
 // Define models functions
 

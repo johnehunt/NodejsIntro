@@ -2,14 +2,17 @@ const express = require("express");
 const app = express();
 // To allow body to be parsed
 const bodyParser = require("body-parser");
-// Set the port
-const port = 8080;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.json());
+// Handle URL encoded requests
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Set the port
+const port = 8080;
+
+// Set up some data to serve
 var users = {};
 users[1] = { id: 1, name: "Jos Jones" };
 

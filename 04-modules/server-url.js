@@ -14,7 +14,7 @@ const server = http.createServer(function(req, res) {
   console.log(q.pathname);
   console.log(q.search);
 
-  var data = q.query;
+  const data = q.query;
   console.log(data);
   console.log(data.month); //returns 'february'
 
@@ -31,4 +31,4 @@ console.log("Server Listening on port 8080");
 server.listen(8080);
 
 console.log("Started");
-console.log.og('Try http://localhost:8080/diary?year=2020&month=September')
+console.log('Try http://localhost:8080/diary?year=2020&month=September')

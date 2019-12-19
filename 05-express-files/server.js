@@ -17,7 +17,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/help", (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'about.html'))
+    res.sendFile(path.resolve(__dirname, 'help.html'))
 });
 
 app.get("/contact", (req, res) => {

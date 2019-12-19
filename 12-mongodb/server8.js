@@ -1,15 +1,14 @@
 const mongo = require("mongodb");
-const client = mongo.MongoClient;
+const MongoClient = mongo.MongoClient;
 const url = "mongodb://localhost:27017";
 
-client.connect(url, {useUnifiedTopology: true}, function(err, db) {
+MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
   if (err) throw err;
-  const dbo = db.db("userdb");
+  const userdb = client.db("userdb");
   const query = { id: 123 };
-  var newvalues = { $set: {name: "Gryff Cooke"} };
-  dbo.collection("users").updateOne(query, newvalues, function(err, res) {
+  userdb.collection("users").deleteOne(query, function(err, obj) {
     if (err) throw err;
-    console.log("1 document updated");
-    db.close();
+    console.log("1 document deleted");
   });
+  client.close();
 });

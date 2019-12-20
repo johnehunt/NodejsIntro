@@ -4,15 +4,15 @@
   "description": "Code examples for a Node.js Introductory Course",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 08-testing/basic/**/*.js"
+    "test": "mocha 09-testing/basic/**/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/johnehunt/NodejsIntro.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "John Hunt",
+  "license": "Apache",
   "bugs": {
     "url": "https://github.com/johnehunt/NodejsIntro/issues"
   },

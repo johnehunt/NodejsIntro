@@ -1,4 +1,4 @@
 const VError = require('verror');
 
-var err = new VError('missing file: "%s"', '/etc/passwd');
+const err = new VError('missing file: "%s"', 'input.txt');
 console.log(err.message);

@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 
 // Create a readable stream
-let readableStream = fs.createReadStream(path.resolve(__dirname, "input.txt"));
+const readableStream = fs.createReadStream(path.resolve(__dirname, "input.txt"));
 
 // Create a writable stream
-let writeableStream = fs.createWriteStream(
+const writeableStream = fs.createWriteStream(
   path.resolve(__dirname, "output2.txt")
 );
 

@@ -10,7 +10,7 @@ writeableStream.write("If music be the food of love,\n");
 writeableStream.write("Give me excess of it, that, surfeiting,\n");
 writeableStream.write("The appetite may sicken, and so die.");
 
-// Once the stream is finished ut fires the "finish" event
+// Once the stream is finished it emitts the "finish" event
 writeableStream.on("finish", () => {
   console.log("Finished Writing");
 });

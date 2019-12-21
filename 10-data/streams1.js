@@ -1,23 +1,32 @@
-// Example fo using a Stream to read a file
-
+// Example of using a Stream to read a file
 const fs = require('fs');
 const path = require('path')
 
-let data = '';
+var data = '';
 
 // Create a readable stream
-let readableStream = fs.createReadStream(path.resolve(__dirname,'input.txt'));
+var readableStream = fs.createReadStream(path.resolve(__dirname,'input.txt'));
 
 // Set the encoding to be utf8. 
 readableStream.setEncoding('UTF8');
 
-// Handle stream events --> data, end,
+// Handle stream events --> data
 readableStream.on('data', function(line) {
    data += line;
 });
 
-// Once all the data has been read - run this
-// When readable stream finishes reading data it fires "end" event.
+// Handle errors in the stream
+readableStream.on('error', function(err) {
+   console.error(err);
+});
+
+// 'end' event is emitted when there is no more data to be 
+// consumed from the stream.
 readableStream.on('end', function(){
-   console.log(data);
+   console.log("end", data);
+});
+
+// 'close' event is emitted when file has been closed
+readableStream.on('close', function(){
+   console.log("close", data);
 });

@@ -44,13 +44,11 @@ describe("Testing a promise", () => {
   });
 
   // Mocha with Chai-as-promised
-  it("resolves-with-chai-as-promised"),
-    () => {
-      return expect(promise).to.eventually.equal(16);
-    };
+  it("resolves-with-chai-as-promised",
+    () => expect(promise).to.eventually.equal(16));
 
-  it("rejects-with-chai-as-promised"),
+  it("rejects-with-chai-as-promised",
     () => {
       return expect(promise).to.eventually.equal("Division by Zero");
-    };
+    });
 });

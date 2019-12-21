@@ -1,9 +1,9 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const server = require("../server/server");
-const should = chai.should();
-
 chai.use(chaiHttp);
+
+// Import server to be tested
+const server = require("../server/server");
 
 const PATH = "/api/users";
 

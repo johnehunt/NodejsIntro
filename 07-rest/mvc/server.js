@@ -47,5 +47,5 @@ app.use("/api", router);
 
 // Start listening on default Port
 app.listen(config.port, () => {
-  console.log("Server Running - http://localhost:8080");
+  console.log("Server Running - http://localhost:" + config.port);
 });

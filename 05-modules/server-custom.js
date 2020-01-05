@@ -5,6 +5,9 @@ console.log("Starting HTTP Server");
 //----------------------
 
 const http = require("http");
+// ES 6 Import module format
+// import { createServer } from "http";
+
 // avoid hard coding the path
 const path = require('path')
 // Load custom module

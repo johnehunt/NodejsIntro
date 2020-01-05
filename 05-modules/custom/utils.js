@@ -28,3 +28,6 @@ function getMOD() {
 }
 
 module.exports = { getDate, getTime, getTimestamp, getMOD, MAX };
+
+// ES6 Format
+// export default { getDate, getTime, getTimestamp, getMOD, MAX };

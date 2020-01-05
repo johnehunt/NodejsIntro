@@ -1,5 +1,5 @@
 // Define how data is held
-var users = {};
+var users = [];
 
 // Set up some initial data
 users[1] = { id: 1, name: "Jos Jones" };

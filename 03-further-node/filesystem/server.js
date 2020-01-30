@@ -1,5 +1,7 @@
 console.log("Starting HTTP Server");
 
+// Load modules including the http, file system 
+// and path modules
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
@@ -11,6 +13,7 @@ const aboutPage = fs.readFileSync(path.resolve(__dirname, "about.html"));
 const helpPage = fs.readFileSync(path.resolve(__dirname, "help.html"));
 
 const server = http.createServer(function(req, res) {
+  // Determine which file to return based on the URL
   console.log("Handling", req.url);
   if (req.url == "/contact") res.end(contactPage);
   else if (req.url == "/about") res.end(aboutPage);

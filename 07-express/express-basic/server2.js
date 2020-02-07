@@ -5,6 +5,8 @@ app.listen(8080, () => {
   console.log("Server Running - http://localhost:8080");
 });
 
+// Set up mappings from different URl paths / routes 
+// to functions to execute
 app.get("/", (req, res) => {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.write("<h1>Hello Express World!</h1><p>Welcome Everyone.</p>");
@@ -30,6 +32,6 @@ app.get("/contact", (req, res) => {
 });
 
 // Handle unknown URL
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.status(404).send("page not found");
 });

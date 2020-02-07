@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
   res.end();
 });
 
+// Send author data back in Json format
 app.get("/author", (req, res) => {
   res.json({
     name: "John Hunt"

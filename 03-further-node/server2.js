@@ -3,7 +3,8 @@ console.log("Starting HTTP Server");
 const http = require("http");
 
 const server = http.createServer(function(req, res) {
-  // Handles multiple different URLs
+  // Use the information in the requets url to determine 
+  // what HTML shoudl be returned from the server.
   console.log("Handling", req.url);
   if (req.url == "/contact")
     res.write("<h1>Contacts</h1><p> Contact Info.</p>");

@@ -2,7 +2,7 @@ const events = require("events");
 const eventEmitter = new events.EventEmitter();
 
 //Create an event handler / callback
-const newUserEventHandler = function() {
+function newUserEventHandler() {
   console.log("newUserEventHandler Handler Called");
 };
 

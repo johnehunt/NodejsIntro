@@ -8,6 +8,8 @@ const promise = new Promise(function(resolve, reject) {
   }
 });
 
+// Illustrate better, more modern error handling
+// with promises
 promise
   .then(function(result) {
     console.log("Did not divide by Zero");

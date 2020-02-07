@@ -1,3 +1,4 @@
+// Create a promise
 const promise = new Promise(function(resolve, reject) {
   let x = 32;
   let y = 2;
@@ -8,6 +9,8 @@ const promise = new Promise(function(resolve, reject) {
   }
 });
 
+// Define then callback function to run once
+// promise has completed
 promise.then(function(result) {
   console.log("Did not divide by Zero");
   console.log(result);

@@ -50,4 +50,4 @@ app.listen(config.port, () => {
   console.log("Server Running - http://localhost:8080");
 });
 
-module.exports = app // For tsting purposes
+module.exports = app // For testing purposes

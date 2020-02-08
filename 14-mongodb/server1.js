@@ -7,6 +7,6 @@ const url = "mongodb://localhost:27017";
 
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
   if (err) throw err;
-  console.log("Database created!");
+  console.log("Connected to Mongo Database!");
   client.close();
 });

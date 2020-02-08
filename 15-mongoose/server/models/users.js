@@ -6,10 +6,10 @@ const url = "mongodb://127.0.0.1/userdb";
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true });
 
 //Get the default connection
-const db = mongoose.connection;
+const connection = mongoose.connection;
 
-//Bind connection to error event (to get notification of connection errors)
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+// What to do on  a connection error
+connection.on("error", err => console.error(err));
 
 //Define a schema
 const Schema = mongoose.Schema;
@@ -24,6 +24,7 @@ const UserModel = mongoose.model("UserModel", UserModelSchema);
 // Define models functions
 
 function getUserById(id) {
+  console.log("getUserById(", id, ")");
   return UserModel.findById(id);
 }
 
@@ -34,14 +35,17 @@ function getAllUsers() {
 }
 
 function addUser(user) {
+  console.log("addUser(", user, ")");
   UserModel.create(user);
 }
 
 function updateUser(user) {
+  console.log("updateUser(", user, ")");
   UserModel.replaceOne({id: user.id}, user);
 }
 
 function deleteUser(id) {
+  console.log("deleteUser(", id, ")");
   UserModel.deleteOne({ id: id });
 }
 

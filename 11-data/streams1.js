@@ -10,8 +10,9 @@ var readableStream = fs.createReadStream(path.resolve(__dirname,'input.txt'));
 // Set the encoding to be utf8. 
 readableStream.setEncoding('UTF8');
 
-// Handle stream events --> data
+// Data generated from stream
 readableStream.on('data', function(line) {
+   console.log('Reading line of text')
    data += line;
 });
 

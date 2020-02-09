@@ -8264,3 +8264,10 @@ node_modules/yallist/LICENSE
 node_modules/yallist/package.json
 node_modules/yallist/README.md
 node_modules/yallist/yallist.js
+node_modules/progress/CHANGELOG.md
+node_modules/progress/index.js
+node_modules/progress/LICENSE
+node_modules/progress/Makefile
+node_modules/progress/package.json
+node_modules/progress/Readme.md
+node_modules/progress/lib/node-progress.js

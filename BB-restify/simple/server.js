@@ -1,8 +1,9 @@
 // Simple hello world echo REST server
-var restify = require('restify');
+const restify = require('restify');
 
 // Set up restify server
-var server = restify.createServer();
+const server = restify.createServer();
+const router = new (require('restify-router')).Router();
 
 // Define a call back functin to use with get request
 server.get('/hello/:name', (req, res, next) => {

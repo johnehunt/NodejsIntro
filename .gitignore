@@ -12073,3 +12073,17 @@ node_modules/type-fest/source/require-at-least-one.d.ts
 node_modules/type-fest/source/require-exactly-one.d.ts
 node_modules/type-fest/source/set-optional.d.ts
 node_modules/type-fest/source/set-required.d.ts
+node_modules/restify-router/.npmignore
+node_modules/restify-router/index.js
+node_modules/restify-router/LICENSE
+node_modules/restify-router/package.json
+node_modules/restify-router/README.md
+node_modules/restify-router/lib/path.js
+node_modules/restify-router/lib/router.js
+node_modules/restify-router/node_modules/assert-plus/assert.js
+node_modules/restify-router/node_modules/assert-plus/package.json
+node_modules/restify-router/node_modules/assert-plus/README.md
+node_modules/restify-router/types/restify-router/index.d.ts
+node_modules/restify-router/types/restify-router/restify-router-tests.ts
+node_modules/restify-router/types/restify-router/tsconfig.json
+node_modules/restify-router/types/restify-router/tslint.json

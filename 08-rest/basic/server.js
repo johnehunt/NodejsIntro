@@ -5,16 +5,18 @@ const bodyParser = require("body-parser");
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+
+// Handle JSON in the request body
 app.use(bodyParser.json());
-// Handle URL encoded requests
+// Handle URL encoded requests; key-value pairs
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set the port
 const port = 8080;
 
 // Set up some data to serve
-var users = {};
-users[1] = { id: 1, name: "Jos Jones" };
+var users = [];
+users[0] = { id: 1, name: "Jos Jones" };
 
 // Get a user by id
 app.get("/user/:id", (req, res) => {
@@ -25,7 +27,7 @@ app.get("/user/:id", (req, res) => {
 });
 
 // Get a list of users
-app.get("/users/list", (req, res) => {
+app.get("/users", (req, res) => {
   res.json(users);
 });
 
@@ -54,5 +56,5 @@ app.delete("/users/:id", (req, res) => {
 
 // Finally start the server listening on the default port
 app.listen(port, () => {
-  console.log("Server Running - http://localhost:8080");
+  console.log("Server Running - http://localhost:8080/users");
 });

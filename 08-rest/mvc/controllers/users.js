@@ -29,10 +29,10 @@ function getUser(req, res) {
 }
 
 function deleteUser(req, res) {
-    const id = req.params.id;
+  const id = req.params.id;
   Users.deleteUser(id);
   res.send("User deleted");
 }
 
 // Now export functions from module
-module.exports = {getUsers, getUser, postUser, updateUser, deleteUser}
+module.exports = { getUsers, getUser, postUser, updateUser, deleteUser };

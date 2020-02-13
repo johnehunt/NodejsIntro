@@ -2,7 +2,7 @@
 var users = [];
 
 // Set up some initial data
-users[1] = { id: 1, name: "Jos Jones" };
+users[0] = { id: 0, name: "Jos Jones" };
 
 // Define models functions
 
@@ -23,4 +23,4 @@ function deleteUser(id) {
 }
 
 // Export functions from Module
-module.exports = {getAllUsers, addUser, updateUser, deleteUser};
+module.exports = { getAllUsers, addUser, updateUser, deleteUser };

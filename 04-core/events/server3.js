@@ -1,5 +1,6 @@
 const events = require("events");
 const eventEmitter = new events.EventEmitter();
+const LOG_EVENT = "LogEvent"
 
 //Create an event handler / callback
 function newLogEventHandler(msg) {
@@ -7,9 +8,9 @@ function newLogEventHandler(msg) {
 };
 
 //Assign the event handler callback to an event:
-eventEmitter.on("LogEvent", newLogEventHandler);
+eventEmitter.on(LOG_EVENT, newLogEventHandler);
 
 //Fire the NewUserEvent
-eventEmitter.emit("LogEvent", "Hi There");
+eventEmitter.emit(LOG_EVENT, "Hi There");
 
 console.log("Done")

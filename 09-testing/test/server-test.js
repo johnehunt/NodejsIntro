@@ -16,7 +16,7 @@ describe("Testing user REST API", function() {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a("object");
-        done();
+        done(); // Indicates that test is complete
       });
   });
   it("should list a SINGLE user on /users/<id> GET", function(done) {

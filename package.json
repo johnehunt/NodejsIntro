@@ -4,7 +4,9 @@
   "description": "Code examples for a Node.js Introductory Course",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 09-testing/promise/**/*.js"
+    "test": "mocha 09-testing/basic/**/*.js",
+    "start": "node ./server.js",
+    "start-dev": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",

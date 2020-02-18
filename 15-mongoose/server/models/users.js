@@ -25,28 +25,27 @@ const UserModel = mongoose.model("UserModel", UserModelSchema);
 
 function getUserById(id) {
   console.log("getUserById(", id, ")");
-  return UserModel.findById(id);
+  return UserModel.find({id: id });
 }
 
 function getAllUsers() {
   console.log("getAllUsers");
-  const users = UserModel.find({}, "id name");
-  return users;
+  return UserModel.find({}, "id name");
 }
 
 function addUser(user) {
   console.log("addUser(", user, ")");
-  UserModel.create(user);
+  return UserModel.create(user);
 }
 
 function updateUser(user) {
   console.log("updateUser(", user, ")");
-  UserModel.replaceOne({id: user.id}, user);
+  return UserModel.replaceOne({id: user.id}, user);
 }
 
 function deleteUser(id) {
   console.log("deleteUser(", id, ")");
-  UserModel.deleteOne({ id: id });
+  return UserModel.deleteOne({ id: id });
 }
 
 // Export functions from Module

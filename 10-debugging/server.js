@@ -39,6 +39,6 @@ app.get("/contact", (req, res) => {
 
 // Handle unknown URL
 app.use(function(req, res, next) {
-  console.err("handling unknown URL: ", req.url);
+  console.error("handling unknown URL: ", req.url);
   res.status(404).send("page not found");
 });

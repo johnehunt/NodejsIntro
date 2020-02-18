@@ -4,7 +4,7 @@ console.log("Starting HTTP Server");
 const http = require("http");
 const request = require("request");
 
-const server = http.createServer(function(req, resp) {
+const server = http.createServer(function (req, resp) {
   console.log("Handling", req.url);
   res.writeHead(200, { "Content-Type": "text/html" });
   if (req.url == "/") {
@@ -19,9 +19,9 @@ const server = http.createServer(function(req, resp) {
       }
     };
     // Set up new promise
-    const promise = new Promise(function(resolve, reject) {
+    const promise = new Promise(function (resolve, reject) {
       // Do async job - this could take some time
-      request.get(options, function(err, resp, body) {
+      request.get(options, function (err, resp, body) {
         if (err) {
           reject(err);
         } else {
@@ -29,17 +29,18 @@ const server = http.createServer(function(req, resp) {
         }
       });
     }).then(
-      function(result) {
+      function (result) {
         userDetails = result;
         console.log("Obtained user details", userDetails);
         // Write details back to client
         resp.write('User details, user: ' + userDetails.login + ', id: ' + userDetails.id);
         resp.end();
-      },
-      function(err) {
-        console.log(err);
-      }
-    );
+      })
+      .catch(
+        function (err) {
+          console.log(err);
+        }
+      );
   }
 });
 

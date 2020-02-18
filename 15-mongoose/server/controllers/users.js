@@ -2,34 +2,56 @@
 const Users = require("../models/users");
 
 // Defines Controller functions
-async function getUsers(req, res) {
-  const users = await Users.getAllUsers();
-  res.json(users);
+// async function getUsers(req, res) {
+//   const users = await Users.getAllUsers();
+//   res.json(users);
+// }
+
+function getUsers(req, res) {
+  console.log("controller users getUsers()");
+  Users.getAllUsers().then((users) => {
+    res.json(users);
+  }).catch((error) => {
+    console.log(error);
+    res.status(400).send();
+  });
 }
 
-async function postUser(req, res) {
+function postUser(req, res) {
   console.log("postUser", req.body);
   const user = req.body;
-  await Users.addUser(user);
-  res.send("User added");
+  Users.addUser(user).then((result) => {
+    res.status(201).send();
+  }).catch((error) => {
+    console.log(error);
+    res.status(400).send();
+  });
 }
 
-async function updateUser(req, res) {
+function updateUser(req, res) {
   console.log("updateUser", req.body);
   const user = req.body;
-  await Users.updateUser(user);
-  res.send("User updated");
+  Users.updateUser(user).then((result) => {
+    res.status(201).send();
+  }).catch((error) => {
+    console.log(error);
+    res.status(400).send();
+  });
 }
 
-async function getUser(req, res) {
-  const user = await Users.getUserById(req.params.id);
-  return user;
+function getUser(req, res) {
+  Users.getUserById(req.params.id).then((user) => {
+    res.json(user);    
+  }).catch((error) => {
+    console.log(error);
+    res.status(400).send();
+  });
 }
 
 async function deleteUser(req, res) {
   const id = req.params.id;
   await Users.deleteUser(id);
-  res.send("User deleted");
+  res.status(200).send();
 }
 
 // Now export functions from module

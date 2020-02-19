@@ -10,7 +10,7 @@ describe("Basic Mocha String Test - Fixtures", function() {
 
   // runs before each test
   beforeEach(function() {
-    console.log("beforerEach");
+    console.log("beforeEach");
   });
 
   it("should return number of characters in a string", function() {

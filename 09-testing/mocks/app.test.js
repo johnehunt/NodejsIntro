@@ -42,7 +42,7 @@ describe("testing the getIndexPage function", function () {
         // check that `res.send` is called once
         expect(res.write.calledOnce).to.be.true;
 
-        // chec that the correct information was supplied
+        // check that the correct information was supplied
         const result = "<h1>Hello</h1><p>Wlecome</p>";
         expect(res.write.firstCall.args[0]).to.equal(result);
     });

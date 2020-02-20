@@ -13,7 +13,7 @@ function getUsers(req, res) {
     res.json(users);
   }).catch((error) => {
     console.log(error);
-    res.status(400).send();
+    res.status(500).send();
   });
 }
 
@@ -24,7 +24,7 @@ function postUser(req, res) {
     res.status(201).send();
   }).catch((error) => {
     console.log(error);
-    res.status(400).send();
+    res.status(500).send();
   });
 }
 
@@ -35,7 +35,7 @@ function updateUser(req, res) {
     res.status(201).send();
   }).catch((error) => {
     console.log(error);
-    res.status(400).send();
+    res.status(500).send();
   });
 }
 
@@ -44,7 +44,7 @@ function getUser(req, res) {
     res.json(user);    
   }).catch((error) => {
     console.log(error);
-    res.status(400).send();
+    res.status(500).send();
   });
 }
 

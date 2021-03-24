@@ -16,7 +16,8 @@ const port = 8080;
 
 // Set up some data to serve
 var users = [];
-users[0] = { id: 0, name: "Jos Jones" };
+users[0] = { id: 0, name: "Jasmine Jones" };
+users[1] = {id: 1, name: "Adam Smith" };
 
 // Get a user by id
 app.get("/user/:id", (req, res) => {

@@ -3,7 +3,7 @@ const expect = chai.expect;
 const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
-describe("Testing a promise", () => {
+describe("Testing a promise", function() {
   let promise = null;
   beforeEach(() => {
     promise = new Promise(function(resolve, reject) {
@@ -18,7 +18,7 @@ describe("Testing a promise", () => {
   });
 
   // Old style with done and chai.expect
-  it("resolves-with-done", done => {
+  it("resolves-with-done", function(done) {
     promise
       .then(result => {
         expect(result).to.equal(16);
@@ -27,13 +27,13 @@ describe("Testing a promise", () => {
   });
 
   // More modern Mocha
-  it("resolves", () => {
+  it("resolves", function () {
     return promise.then(result => {
       expect(result).to.equal(16);
     });
   });
 
-  it("rejects", () => {
+  it("rejects", function () {
     return promise
       .then(res => {
         throw new Error("Was not supposed to succeed");

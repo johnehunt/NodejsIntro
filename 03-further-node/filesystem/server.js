@@ -22,8 +22,8 @@ const server = http.createServer(function(req, res) {
   else {
     res.writeHead(404);
     res.write("page not found");
+    res.end();
   }
-  res.end();
 });
 
 console.log("Listening on port 8080");

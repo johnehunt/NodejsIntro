@@ -51,6 +51,7 @@ app.put("/users", (req, res) => {
 // Delete a User
 app.delete("/users/:id", (req, res) => {
   const id = req.params.id;
+  console.log("delete user: ", id);
   delete users[id];
   res.send("User deleted");
 });

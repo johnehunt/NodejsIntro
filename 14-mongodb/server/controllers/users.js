@@ -2,13 +2,7 @@
 const Users = require("../models/users");
 
 // Defines Controller functions
-// async function getUsers(req, res) {
-//   const users = await Users.getAllUsers();
-//   res.json(users);
-// }
-
 function getUsers(req, res) {
-  console.log("controller users getUsers()");
   Users.getAllUsers().then((users) => {
     res.json(users);
   }).catch((error) => {
@@ -17,10 +11,21 @@ function getUsers(req, res) {
   });
 }
 
+async function getUsers2(req, res) {
+  // Because of the await can use try catch
+  try {
+    const users = await Users.getAllUsers();
+    res.json(users);
+  } catch (ex) {
+    console.log(error);
+    res.status(500).send();
+  }
+}
+
 function postUser(req, res) {
   console.log("postUser", req.body);
   const user = req.body;
-  Users.addUser(user).then((result) => {
+  Users.addUser(user).then(() => {
     res.status(201).send();
   }).catch((error) => {
     console.log(error);
@@ -31,8 +36,8 @@ function postUser(req, res) {
 function updateUser(req, res) {
   console.log("updateUser", req.body);
   const user = req.body;
-  Users.updateUser(user).then((result) => {
-    res.status(201).send();
+  Users.updateUser(user).then(() => {
+    res.status(200).send();
   }).catch((error) => {
     console.log(error);
     res.status(500).send();
@@ -40,19 +45,21 @@ function updateUser(req, res) {
 }
 
 function getUser(req, res) {
-  Users.getUserById(req.params.id).then((user) => {
-    res.json(user);    
+  res.json({
+    id: req.params.id,
+    name: "John Hunt"
+  });
+}
+
+function deleteUser(req, res) {
+  const id = req.params.id;
+  Users.deleteUser(id).then(() => {
+    res.status(202).send();
   }).catch((error) => {
     console.log(error);
     res.status(500).send();
   });
 }
 
-async function deleteUser(req, res) {
-  const id = req.params.id;
-  await Users.deleteUser(id);
-  res.status(200).send();
-}
-
 // Now export functions from module
-module.exports = { getUsers, getUser, postUser, updateUser, deleteUser };
+module.exports = { getUsers, getUser, postUser, updateUser, deleteUser }

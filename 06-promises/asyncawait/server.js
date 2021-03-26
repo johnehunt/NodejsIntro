@@ -2,7 +2,7 @@
 console.log("Starting HTTP Server");
 
 const http = require("http");
-const request = require("request");
+const fetch = require('node-fetch');
 
 const server = http.createServer(function(req, res) {
   console.log("Handling", req.url);
@@ -17,7 +17,13 @@ const server = http.createServer(function(req, res) {
 
 async function asyncUserDetailsCall(resp) {
   console.log("calling");
-  const userDetails = await getUserDetails();
+  const options = {headers: {
+      "User-Agent": "request"
+    }};
+  const promise = await fetch("https://api.github.com/users/johnehunt", options);
+  const userDetails = await promise.json(); //assuming data is json
+  console.log(userDetails)
+
   console.log("Obtained user details", userDetails);
   // Write details back to client
   resp.write(
@@ -26,29 +32,9 @@ async function asyncUserDetailsCall(resp) {
   resp.end();
 }
 
-function getUserDetails() {
-  // Setting URL and headers for request from guthub
-  const options = {
-    url: "https://api.github.com/users/johnehunt",
-    headers: {
-      "User-Agent": "request"
-    }
-  };
-  // Set up new promise
-  const promise = new Promise(function(resolve, reject) {
-    // Do async job - this could take some time
-    request.get(options, function(err, resp, body) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(JSON.parse(body));
-      }
-    });
-  });
-  return promise;
-}
-
 console.log("Listening on port 8080");
 server.listen(8080);
 
 console.log("Started");
+console.log("For basic usage see - http://localhost:8080/" )
+console.log("For user info see - http://localhost:8080/user" )

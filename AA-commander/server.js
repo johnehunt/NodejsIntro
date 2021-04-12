@@ -9,6 +9,8 @@ commander
 
 commander.parse(process.argv);
 
-if (commander.debug) console.log('debug mode turned on');
-if (commander.long) console.log('This provides long form information');
-if (commander.printer) console.log(`${commander.printer}`);
+const options = commander.opts();
+
+if (options.debug) console.log('debug mode turned on');
+if (options.long) console.log('This provides long form information');
+if (options.printer) console.log(`printer ${options.printer}`);

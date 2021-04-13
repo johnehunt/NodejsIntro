@@ -6,19 +6,16 @@ const MongoClient = mongo.MongoClient;
 const URL = "mongodb://127.0.0.1:27017";
 const DATABASE_NAME = "userdb";
 const COLLECTION_NAME = "users";
-var collection;
+let collection;
 
 console.debug("Starting Server");
 
-app.listen(8080, () => {
-  MongoClient.connect(
-    URL,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    function (err, client) {
-      if (err) {
-        console.err("Problem connecting to MongoDB");
-        throw err;
-      }
+MongoClient
+    .connect(URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then((client) => {
       const database = client.db(DATABASE_NAME);
       collection = database.collection(COLLECTION_NAME);
       console.log(
@@ -27,10 +24,38 @@ app.listen(8080, () => {
           "' using collection " +
           COLLECTION_NAME
       );
-      console.log("Server Running - http://localhost:8080");
-    }
-  );
-});
+    })
+    .then((e) => {
+      app.listen(8080, () => {
+        console.log("Server Running - http://localhost:8080");
+      })
+    })
+    .catch((err) => {
+      console.err("Problem connecting to MongoDB");
+      throw err;
+    });
+
+// app.listen(8080, () => {
+//   MongoClient.connect(
+//     URL,
+//     { useNewUrlParser: true, useUnifiedTopology: true },
+//     function (err, client) {
+//       if (err) {
+//         console.err("Problem connecting to MongoDB");
+//         throw err;
+//       }
+//       const database = client.db(DATABASE_NAME);
+//       collection = database.collection(COLLECTION_NAME);
+//       console.log(
+//         "Connected to '" +
+//           DATABASE_NAME +
+//           "' using collection " +
+//           COLLECTION_NAME
+//       );
+//       console.log("Server Running - http://localhost:8080");
+//     }
+//   );
+// });
 
 app.get("/", (req, res) => {
   console.debug("In default get/");

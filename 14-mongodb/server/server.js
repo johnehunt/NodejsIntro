@@ -19,22 +19,24 @@ const controller = require(path.resolve(__dirname, "controllers/users"));
 
 // Configure express to handle json body content
 // express 4.16 and newer
-app.use(express.json())
-app.use(express.urlencoded({
-  extended: true
-}))
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 // Set up routing for our services
 const router = express.Router();
 
 // Log all messages sent to the server
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
   console.log("Received req.url: " + req.url);
   next(); // make sure we go to the next routes and don't stop here
 });
 
 // Set up default route - useful for testing
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
   res.json({ message: "Welcome" });
 });
 
@@ -62,14 +64,16 @@ function logErrors(err, req, res, next) {
 app.use(logErrors);
 
 // Can have more then one error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
-// Start listening on default Port
-app.listen(config.port, () => {
-  console.log("Server Running - http://localhost:8080/api/users");
+controller.setup().then((result) => {
+  // Start listening on default Port
+  app.listen(config.port, () => {
+    console.log("Server Running - http://localhost:8080/api/users");
+  });
 });
 
 module.exports = app; // For tsting purposes

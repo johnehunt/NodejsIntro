@@ -1,43 +1,51 @@
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 
-const URL = "mongodb://localhost:27017";
+const URL = "mongodb://127.0.0.1:27017";
 const DATABASE_NAME = "userdb";
 const COLLECTION_NAME = "users";
-var collection;
+let collection;
 
-MongoClient.connect(
-  URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function(err, client) {
-    if (err) {
+function setupMongoConnection() {
+  return MongoClient
+    .connect(URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then((client) => {
+      const database = client.db(DATABASE_NAME);
+      collection = database.collection(COLLECTION_NAME);
+      console.log(
+        "Connected to '" +
+          DATABASE_NAME +
+          "' using collection " +
+          COLLECTION_NAME
+      );
+    })
+    .catch((err) => {
       console.err("Problem connecting to MongoDB");
       throw err;
-    }
-    const database = client.db(DATABASE_NAME);
-    collection = database.collection(COLLECTION_NAME);
-    console.log(
-      "Connected to '" +
-        DATABASE_NAME +
-        "' using collection " +
-        COLLECTION_NAME
-    );
-  }
-);
+    });
+}
 
 // Define models functions
 
 function getAllUsers() {
   console.log("model.getAllUsers()");
-  const promise = new Promise((resolve, reject) => {
-    collection.find().toArray((err, users) => {
-      if (err) reject(err);
-      console.log("model.getAllBooks() - setting resolve");
-      resolve(users);
-    });
-  });
-  return promise;
+  return collection.find().toArray();
 }
+
+// function getAllUsers() {
+//   console.log("model.getAllUsers()");
+//   const promise = new Promise((resolve, reject) => {
+//     collection.find().toArray((err, users) => {
+//       if (err) reject(err);
+//       console.log("model.getAllBooks() - setting resolve");
+//       resolve(users);
+//     });
+//   });
+//   return promise;
+// }
 
 function addUser(user) {
   const promise = new Promise((resolve, reject) => {
@@ -77,4 +85,4 @@ function deleteUser(id) {
 }
 
 // Export functions from Module
-module.exports = {getAllUsers, addUser, updateUser, deleteUser};
+module.exports = { getAllUsers, addUser, updateUser, deleteUser, setupMongoConnection };

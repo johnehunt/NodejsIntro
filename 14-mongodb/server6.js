@@ -1,20 +1,26 @@
 const mongo = require("mongodb");
-const MongoClient = mongo.MongoClient;
-const url = "mongodb://localhost:27017";
 
-MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
+console.log("Setting up Mongodb client");
+const MongoClient = mongo.MongoClient;
+const url = "mongodb://127.0.0.1:27017";
+
+console.log("Connecting to the Mongodb server");
+MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
   if (err) throw err;
   const userdb = client.db("userdb");
-  const query = { id: 123 };
   const mysort = { name: 1 };
+
+  console.log("Running query and sort");
   userdb
     .collection("users")
-    .find(query)
+    .find({})
     .sort(mysort)
-    .toArray(function(err, result) {
-      if (err) throw err;
+    .toArray()
+    .then((result) => {
       console.log(result);
+    })
+    .catch((err) => console.log(err))
+    .finally(() => {
+      client.close();
     });
-
-  client.close();
 });

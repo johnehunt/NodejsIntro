@@ -11,21 +11,21 @@ function insertDocuments(err, client) {
   const userdb = client.db("userdb");
   const collection = userdb.collection("users");
 
-  console.log("Add an entry into the collection");
-  const user = { id: 1234, name: "John Smith" };
   collection
-    .insertOne(user)
-    .then((res) => {
-      console.log(res);
+    .insertMany(
+      [
+        { id: 111, name: "Adam Jones" },
+        { id: 222, name: "Jasmine Moore" },
+      ])
+    .then((result) => {
+      console.log("Inserted 3 documents into the collection");
     })
-    .catch((err) => console.log(err))
-    .finally(() => {
-      client.close();
-    });
+    .catch((errorMessage) => {
+      console.log(errorMessage);
+    })
+    .finally(() => client.close());
+
 }
 
 console.log("Connecting to Server");
-MongoClient.connect(
-  url, 
-  { useUnifiedTopology: true }, 
-  insertDocuments);
+MongoClient.connect(url, { useUnifiedTopology: true }, insertDocuments);

@@ -1,3 +1,4 @@
+// Example that reads data from one stream and writes it to another
 const fs = require("fs");
 const path = require("path");
 

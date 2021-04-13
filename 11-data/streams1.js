@@ -12,7 +12,7 @@ readableStream.setEncoding('UTF8');
 
 // Data generated from stream
 readableStream.on('data', function(line) {
-   console.log('Reading line of text')
+   console.log('data recieved - Reading text from file')
    data += line;
 });
 
@@ -24,10 +24,12 @@ readableStream.on('error', function(err) {
 // 'end' event is emitted when there is no more data to be 
 // consumed from the stream.
 readableStream.on('end', function(){
-   console.log("end", data);
+   console.log("end - received")
+   console.log(data);
 });
 
 // 'close' event is emitted when file has been closed
 readableStream.on('close', function(){
    console.log("close", data);
 });
+

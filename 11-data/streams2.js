@@ -1,3 +1,4 @@
+// Example of using a stream to write data to a file
 const fs = require("fs");
 const path = require("path");
 

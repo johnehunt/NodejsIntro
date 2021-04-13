@@ -2,9 +2,10 @@ const mysql = require("mysql");
 
 console.log("Connecting to database");
 const con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
+  port: "3306",
   user: "user",
-  password: "password",
+  password: "user123",
   database: "employees"
 });
 
@@ -15,7 +16,7 @@ con.connect(function(err) {
 
 // Insert into the database
 const sql =
-  "INSERT INTO employees.employee (id, name) VALUES (987, 'Jas Bowen')";
+  "INSERT INTO employees.employee (id, name) VALUES (5, 'Jas Bowen')";
 con.query(sql, function(err, results) {
   if (err) throw err;
   console.log("Record inserted");

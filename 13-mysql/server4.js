@@ -2,9 +2,10 @@ const mysql = require("mysql");
 
 console.log("Connecting to database");
 const con = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
+  port: "3306",
   user: "user",
-  password: "password",
+  password: "user123",
   database: "employees"
 });
 
@@ -14,7 +15,7 @@ con.connect(function(err) {
 });
 
 const sql =
-  "UPDATE employees.employee SET name = 'Jasmine Bowen' WHERE id = 987";
+  "UPDATE employees.employee SET name = 'Jasmine Bowen' WHERE id = 5";
 con.query(sql, function(err, results) {
   if (err) throw err;
   console.log(results.affectedRows, "record updated");

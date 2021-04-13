@@ -14901,3 +14901,6 @@ node_modules/node-fetch/lib/index.mjs
 node_modules/node-fetch/lib/index.mjs
 .gitignore
 node_modules/node-fetch/README.md
+node_modules/has-symbols/.eslintignore
+.gitignore
+node_modules/has-symbols/.nycrc

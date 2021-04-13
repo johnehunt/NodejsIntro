@@ -1,15 +1,19 @@
 const express = require("express");
 const app = express();
-// To allow body to be parsed
-const bodyParser = require("body-parser");
-
+// To allow body to be parsed - pre express 4.16
+// const bodyParser = require("body-parser");
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-
 // Handle JSON in the request body
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 // Handle URL encoded requests; key-value pairs
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+// As of Express 4.16 or newer body-parser has been (re) added to the express core
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
 
 // Set the port
 const port = 8080;
@@ -17,13 +21,13 @@ const port = 8080;
 // Set up some data to serve
 var users = [];
 users[0] = { id: 0, name: "Jasmine Jones" };
-users[1] = {id: 1, name: "Adam Smith" };
+users[1] = { id: 1, name: "Adam Smith" };
 
 // Get a user by id
 app.get("/user/:id", (req, res) => {
   res.json({
     id: req.params.id,
-    name: "John Hunt"
+    name: "John Hunt",
   });
 });
 

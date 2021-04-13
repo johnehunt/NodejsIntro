@@ -1,6 +1,6 @@
-// Comment out line 3 to run remaining lines
+// Example sof generating error types
 
-console.log(new Error('A standard error'))
+console.log(new Error('A standard error'));
 
 class UserError extends Error {
     constructor(args){
@@ -9,4 +9,4 @@ class UserError extends Error {
     }
 }
 
-console.log(new UserError('A standard error'))
+console.log(new UserError('A standard error'));

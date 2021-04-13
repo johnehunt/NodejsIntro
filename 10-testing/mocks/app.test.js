@@ -36,7 +36,7 @@ describe("testing the getIndexPage function", function () {
         // Call the function for us to test
         getIndexPage(req, res);
 
-        // assert that the stub is logged is called at least once
+        // assert that the stub isLoggedInStub is called at least once
         expect(isLoggedInStub.calledOnce).to.be.true;
 
         // check that `res.send` is called once

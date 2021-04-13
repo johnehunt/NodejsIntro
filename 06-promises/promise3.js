@@ -22,14 +22,14 @@ const server = http.createServer(function (req, resp) {
     // Use node-fetch to call service as a promise
     fetch("https://api.github.com/users/johnehunt", options)
       .then((res) => res.json())
-      .then(function (userDetails) {
+      .then((userDetails) => {
         console.log(userDetails);
         resp.write(
           "User details, user: " + userDetails.login + ", id: " + userDetails.id
         );
         resp.end();
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.log(err);
       });
   }

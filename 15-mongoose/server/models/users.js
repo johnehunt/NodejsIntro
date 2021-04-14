@@ -1,8 +1,8 @@
 // Load the mongoose module
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 // Set up default mongoose connection
-const url = "mongodb://127.0.0.1/userdb";
+const url = 'mongodb://127.0.0.1/userdb';
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true });
 
 //Get the default connection

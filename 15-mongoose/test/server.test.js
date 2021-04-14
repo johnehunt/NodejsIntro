@@ -7,15 +7,15 @@ chai.use(chaiHttp);
 
 const PATH = "/api/users";
 
-describe("Testing user REST API", function() {
-  it("should list ALL users on /api/users GET", function(done) {
+describe('Testing user REST API', function() {
+  it('should list ALL users on /api/users GET', function(done) {
     chai
       .request(server)
       .get(PATH)
-      .end(function(err, res) {
+      .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a("object");
+        res.body.should.be.a("array");
         done();
       });
   });
@@ -26,7 +26,7 @@ describe("Testing user REST API", function() {
       .end(function(err, res) {
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a("object");
+        res.body.should.be.a("array");
         done();
       });
   });
@@ -36,8 +36,7 @@ describe("Testing user REST API", function() {
       .post(PATH)
       .send({ id: "321", name: "Phoebe Davies" })
       .end(function(err, res) {
-        res.should.have.status(200);
-        res.text.should.equal("User added");
+        res.should.have.status(201);
         done();
       });
   });
@@ -47,8 +46,7 @@ describe("Testing user REST API", function() {
       .put(PATH)
       .send({ id: "321", name: "Phoebe Davies" })
       .end(function(err, res) {
-        res.should.have.status(200);
-        res.text.should.equal("User updated");
+        res.should.have.status(201);
         done();
       });
   });
@@ -57,8 +55,7 @@ describe("Testing user REST API", function() {
       .request(server)
       .delete(PATH + "/1")
       .end(function(err, res) {
-        res.should.have.status(200);
-        res.text.should.be.equal("User deleted");
+        res.should.have.status(204);
         done();
       });
   });

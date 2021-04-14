@@ -11,14 +11,14 @@ function postUser(req, res) {
   console.log("postUser", req.body);
   const user = req.body;
   Users.addUser(user);
-  res.send("User added");
+  res.status(201).send("User added");
 }
 
 function updateUser(req, res) {
   console.log("updateUser", req.body);
   const user = req.body;
   Users.updateUser(user);
-  res.send("User updated");
+  res.status(201).send("User updated");
 }
 
 function getUser(req, res) {
@@ -31,7 +31,7 @@ function getUser(req, res) {
 function deleteUser(req, res) {
   const id = req.params.id;
   Users.deleteUser(id);
-  res.send("User deleted");
+  res.status(204).send("User deleted");
 }
 
 // Now export functions from module

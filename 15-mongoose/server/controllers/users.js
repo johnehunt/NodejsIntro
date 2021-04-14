@@ -64,7 +64,7 @@ function getUser(req, res) {
 async function deleteUser(req, res) {
   const id = req.params.id;
   await Users.deleteUser(id);
-  res.status(200).send();
+  res.status(204).send();
 }
 
 // Now export functions from module

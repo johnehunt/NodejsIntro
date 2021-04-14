@@ -41,7 +41,7 @@ app.post("/users", (req, res) => {
   console.log("post", req.body);
   const user = req.body;
   users[user.id] = user;
-  res.send("User added");
+  res.status(201).send("User added");
 });
 
 // Use Put to update a User
@@ -49,7 +49,7 @@ app.put("/users", (req, res) => {
   console.log("put", req.body);
   const user = req.body;
   users[user.id] = user;
-  res.send("User updated");
+  res.status(201).send("User updated");
 });
 
 // Delete a User
@@ -57,7 +57,7 @@ app.delete("/users/:id", (req, res) => {
   const id = req.params.id;
   console.log("delete user: ", id);
   delete users[id];
-  res.send("User deleted");
+  res.status(204).send("User deleted");
 });
 
 // Finally start the server listening on the default port

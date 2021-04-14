@@ -1,5 +1,6 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
+const should = chai.should();
 chai.use(chaiHttp);
 
 // Import server to be tested
@@ -15,7 +16,7 @@ describe("Testing user REST API", function () {
       .end(function (err, res) {
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a("object");
+        res.body.should.be.a("array");
         done(); // Indicates that test is complete
       });
   });

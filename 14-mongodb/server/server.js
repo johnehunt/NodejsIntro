@@ -64,12 +64,14 @@ function logErrors(err, req, res, next) {
 app.use(logErrors);
 
 // Can have more then one error handler
-app.use(function (err, req, res, next) {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
-controller.setup().then((result) => {
+controller
+  .setup()
+  .then((result) => {
   // Start listening on default Port
   app.listen(config.port, () => {
     console.log("Server Running - http://localhost:8080/api/users");

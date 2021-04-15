@@ -12,7 +12,7 @@ const server = http.createServer(function (req, resp) {
     resp.write("<h1>Hello World!</h1><p>Welcome Everyone.</p>");
     resp.end();
   } else if (req.url == "/user") {
-    // Setting URL and headers for request from guthub
+    // Setting URL and headers for request from github
     var options = {
       headers: {
         "User-Agent": "request",

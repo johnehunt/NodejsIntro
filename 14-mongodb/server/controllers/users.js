@@ -20,16 +20,17 @@ function getUsers(req, res) {
     });
   }
 
-async function getUsers2(req, res) {
-  // Because of the await can use try catch
-  try {
-    const users = await Users.getAllUsers();
-    res.json(users);
-  } catch (ex) {
-    console.log(error);
-    res.status(500).send();
-  }
-}
+// Alternative style
+// async function getUsers2(req, res) {
+//   // Because of the await can use try catch
+//   try {
+//     const users = await Users.getAllUsers();
+//     res.json(users);
+//   } catch (ex) {
+//     console.log(error);
+//     res.status(500).send();
+//   }
+// }
 
 function postUser(req, res) {
   console.log("postUser", req.body);
@@ -77,4 +78,11 @@ function deleteUser(req, res) {
 }
 
 // Now export functions from module
-module.exports = { setup, getUsers, getUser, postUser, updateUser, deleteUser };
+module.exports = { 
+    setup, 
+    getUsers, 
+    getUser, 
+    postUser, 
+    updateUser, 
+    deleteUser 
+};

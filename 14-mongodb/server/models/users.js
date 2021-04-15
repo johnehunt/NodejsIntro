@@ -48,40 +48,19 @@ function getAllUsers() {
 // }
 
 function addUser(user) {
-  const promise = new Promise((resolve, reject) => {
-    collection.insertOne(user, (err, result) => {
-      if (err) reject(err);
-      console.log("1 document inserted: " + JSON.stringify(user));
-      resolve();
-    });
-  });
-  return promise;
+  return collection.insertOne(user);
 }
 
 function updateUser(user) {
-  const promise = new Promise((resolve, reject) => {
-    const query = { id: user.id };
-    const newValues = { $set: user };
-    collection.updateOne(query, newValues, (err, result) => {
-      if (err) reject(err);
-      console.log("1 document updated: " + JSON.stringify(user));
-      resolve();
-    });
-  });
-  return promise;
+  const query = { id: user.id };
+  const newValues = { $set: user };
+  return collection.updateOne(query, newValues);
 }
 
 function deleteUser(id) {
-  const promise = new Promise((resolve, reject) => {
-    const query = { id: id };
-    console.log("Deleting ", query);
-    collection.deleteOne(query, (err, obj) => {
-      if (err) reject(err);
-      console.log("1 document deleted: " + isbn);
-      resolve();
-    });
-  });
-  return promise;
+  const query = { id: id };
+  console.log("Deleting ", query);
+  return collection.deleteOne(query);
 }
 
 // Export functions from Module

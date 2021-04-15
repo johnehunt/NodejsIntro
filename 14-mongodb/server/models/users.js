@@ -15,12 +15,7 @@ function setupMongoConnection() {
     .then((client) => {
       const database = client.db(DATABASE_NAME);
       collection = database.collection(COLLECTION_NAME);
-      console.log(
-        "Connected to '" +
-          DATABASE_NAME +
-          "' using collection " +
-          COLLECTION_NAME
-      );
+      console.log(`Connected to ${DATABASE_NAME} using collection ${COLLECTION_NAME}`);
     })
     .catch((err) => {
       console.err("Problem connecting to MongoDB");

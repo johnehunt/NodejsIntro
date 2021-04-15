@@ -13,7 +13,7 @@ const server = http.createServer(function (req, resp) {
     resp.end();
   } else if (req.url == "/user") {
     // Setting URL and headers for request from github
-    var options = {
+    const options = {
       headers: {
         "User-Agent": "request",
       },

@@ -15,7 +15,7 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-// Run a query
+// Run a query with a callback
 const sql = "SELECT * FROM employees.employee";
 con.query(sql, function(err, results) {
   if (err) throw err;

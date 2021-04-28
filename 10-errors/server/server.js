@@ -1,7 +1,5 @@
 const express = require("express");
 const app = express();
-// To allow body to be parsed
-const bodyParser = require("body-parser");
 
 // avoid hard coding the path
 const path = require("path");
@@ -12,10 +10,10 @@ const config = require(path.resolve(__dirname, "config/default"));
 // Load user route definitions
 const users = require(path.resolve(__dirname, "controllers/users"));
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
 
 // Set up routing for our services
 const router = express.Router();

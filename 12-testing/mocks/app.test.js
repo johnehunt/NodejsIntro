@@ -43,7 +43,7 @@ describe("testing the getIndexPage function", function () {
         expect(res.write.calledOnce).to.be.true;
 
         // check that the correct information was supplied
-        const result = "<h1>Hello</h1><p>Wlecome</p>";
+        const result = "<h1>Hello</h1><p>Welcome</p>";
         expect(res.write.firstCall.args[0]).to.equal(result);
     });
 });

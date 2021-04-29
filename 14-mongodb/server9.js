@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
   collection
     .find({})
     .toArray()
-    .then((result) => {
+    .then(result => {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write("<h2>Users</h2>");
       res.write("<ul>");
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
       res.write("</ul>");
       res.end();
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(400);
     });

@@ -11,10 +11,10 @@ function getUsers(req, res) {
   console.log("controller users getUsers()");
   Users
     .getAllUsers()
-    .then((users) => {
+    .then(users => {
       res.json(users);
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       res.status(500).send();
     });
@@ -28,7 +28,7 @@ function postUser(req, res) {
     .then((result) => {
       res.status(201).send();
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       res.status(500).send();
     });
@@ -39,10 +39,10 @@ function updateUser(req, res) {
   const user = req.body;
   Users
     .updateUser(user)
-    .then((result) => {
+    .then(result => {
       res.status(201).send();
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       res.status(500).send();
     });
@@ -51,10 +51,10 @@ function updateUser(req, res) {
 function getUser(req, res) {
   Users
     .getUserById(req.params.id)
-    .then((user) => {
+    .then(user => {
       res.json(user);    
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error);
       res.status(500).send();
     });

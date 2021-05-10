@@ -3,7 +3,10 @@ const path = require("path");
 
 const filename = path.resolve(__dirname, 'demofile.txt')
 
+// Create read stream on file
 const rs = fs.createReadStream(filename);
+
+// Set up event handlers
 rs.on('open', function () {
   console.log('open - The file is open');
 });

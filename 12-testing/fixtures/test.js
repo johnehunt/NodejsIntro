@@ -1,6 +1,22 @@
 // Load simple assertion module
 var assert = require("assert");
 
+before(function() {
+  console.log("before module global");
+});
+
+after(function() {
+  console.log("after module global");
+});
+
+beforeEach(function() {
+  console.log("beforeEach global");
+});
+
+afterEach(function() {
+  console.log("afterEach global");
+});
+
 // Define a test specification
 describe("Basic Mocha String Test - Fixtures", function() {
   // runs once
@@ -14,10 +30,10 @@ describe("Basic Mocha String Test - Fixtures", function() {
   });
 
   it("should return number of characters in a string", function() {
-    assert.equal("Hello".length, 5);
+    assert.strictEqual("Hello".length, 5);
   });
   it("should return first character of the string", function() {
-    assert.equal("Hello".charAt(0), "H");
+    assert.strictEqual("Hello".charAt(0), "H");
   });
 
   // runs after each test

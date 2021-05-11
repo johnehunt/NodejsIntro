@@ -3,6 +3,7 @@
 const commander = require('commander');
 
 commander
+  .version('0.0.1')
   .option('-d, --debug', 'output extra debugging')
   .option('-l, --long', 'provide long form information')
   .option('-p, --printer <message>', 'pretty print a message', 'hello');

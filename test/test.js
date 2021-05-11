@@ -21,8 +21,8 @@ describe('Object Test', function(){
     var car = {name:'Fiesta', Maker:'Ford'}
     var car1 = {name:'Fiesta', Maker:'Ford'}
 
-    // car.should.equal(car1);
-    car.should.deep.equal(car1);
+    // car.should.equal(car1); // uses strict equality ===
+    car.should.deep.equal(car1); // provides value based comparison
   });
 
   it('handling null', function(){

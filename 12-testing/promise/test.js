@@ -4,7 +4,9 @@ const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
 describe("Testing a promise", function() {
+
   let promise = null;
+  
   beforeEach(() => {
     promise = new Promise(function(resolve, reject) {
       let x = 32;

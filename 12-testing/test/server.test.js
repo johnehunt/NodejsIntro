@@ -64,3 +64,10 @@ describe("Testing user REST API", function () {
       });
   });
 });
+
+
+
+after(function() {
+  console.log("Shutting doen server from test");
+  process.exit(0);
+});

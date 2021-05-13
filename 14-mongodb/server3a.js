@@ -1,3 +1,5 @@
+// Example illustrates inserting multiple documents
+
 const mongo = require("mongodb");
 
 console.log("Setting up Mongodb client");
@@ -28,4 +30,8 @@ function insertDocuments(err, client) {
 }
 
 console.log("Connecting to Server");
-MongoClient.connect(url, { useUnifiedTopology: true }, insertDocuments);
+MongoClient.connect(
+  url, 
+  { useUnifiedTopology: true, poolSize: 10 }, 
+  insertDocuments
+);

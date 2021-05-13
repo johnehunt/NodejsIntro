@@ -17,7 +17,7 @@ MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
 });
 
 // Or to use connection pooling
-// MongoClient.connect(url, {  poolSize: 10 },function(err, client) {
+// MongoClient.connect(url, {useUnifiedTopology: true, poolSize: 10 },function(err, client) {
 //   if (err) throw err;
 //   console.log("Connected to Mongo Database!");
 //   client.close();

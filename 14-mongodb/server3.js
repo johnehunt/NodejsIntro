@@ -1,9 +1,12 @@
+// Example illustrates inserting a single document
+
 const mongo = require("mongodb");
 
 console.log("Setting up Mongodb client");
 const MongoClient = mongo.MongoClient;
 const url = "mongodb://127.0.0.1:27017";
 
+// set up function to be used to insert one document
 function insertDocuments(err, client) {
   if (err) throw err;
 
@@ -12,7 +15,7 @@ function insertDocuments(err, client) {
   const collection = userdb.collection("users");
 
   console.log("Add an entry into the collection");
-  const user = { id: 1234, name: "John Smith" };
+  const user = { id: 333, name: "Denise Byrne" };
   collection
     .insertOne(user)
     .then((res) => {
@@ -24,8 +27,10 @@ function insertDocuments(err, client) {
     });
 }
 
+// connect and run function
 console.log("Connecting to Server");
 MongoClient.connect(
   url, 
-  { useUnifiedTopology: true }, 
-  insertDocuments);
+  { useUnifiedTopology: true, poolSize: 10 }, 
+  insertDocuments
+);

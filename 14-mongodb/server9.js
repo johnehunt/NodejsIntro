@@ -6,7 +6,7 @@ const MongoClient = mongo.MongoClient;
 const URL = 'mongodb://127.0.0.1:27017';
 const DATABASE_NAME = 'userdb';
 const COLLECTION_NAME = 'users';
-let collection;
+let collection; // Used to store reference to mongodb collection
 
 console.debug("Starting Server");
 
@@ -14,6 +14,7 @@ MongoClient
     .connect(URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      poolSize: 10
     })
     .then((client) => {
       const database = client.db(DATABASE_NAME);

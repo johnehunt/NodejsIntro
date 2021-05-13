@@ -70,12 +70,15 @@ app.use((err, req, res, next) => {
 });
 
 controller
-  .setup()
+  .setup() // Added to handle setting up mongodb connection
   .then((result) => {
-  // Start listening on default Port
-  app.listen(config.port, () => {
-    console.log("Server Running - http://localhost:8080/api/users");
+    // Start listening on default Port
+    app.listen(config.port, () => {
+      console.log("Server Running - http://localhost:8080/api/users");
+    });
+  })
+  .catch((error) => {
+    console.log("Problem starting Mongodb connection - server not started");
   });
-});
 
 module.exports = app; // For tsting purposes

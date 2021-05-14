@@ -1,10 +1,12 @@
 console.log("Starting HTTP Server");
+
 // Load required http module - note naming convention
 // const holding reference to module is named after the
 // module itself
 const http = require('http');
 
-// Create the server instance
+// Create the server instance - define a callback that
+// will be invoked whenever a HTTP request is received
 const server = http.createServer(function(req, res) {
   res.write('Hello World!'); //write a response to the client
   res.end(); //end the response

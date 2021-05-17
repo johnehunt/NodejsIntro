@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-// To allow body to be parsed - pre express 4.16
+
+// To allow body to be parsed - pre express 4.16 (4.0 onwards)
 // const bodyParser = require("body-parser");
 // configure app to use bodyParser()
 // this will let us get the data from a POST

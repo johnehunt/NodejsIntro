@@ -1,6 +1,8 @@
 // Defines functions and variables that
 // can be exported to other modules
 
+console.log('I am free standing code run when module loaded');
+
 const MAX = 1000;
 
 function getDate() {

@@ -19,6 +19,7 @@ const server = http.createServer(function (req, resp) {
       },
     };
 
+    console.log('Initialing fetch request');
     // Use node-fetch to call service as a promise
     fetch("https://api.github.com/users/johnehunt", options)
       .then((res) => res.json())
@@ -28,6 +29,7 @@ const server = http.createServer(function (req, resp) {
           "User details, user: " + userDetails.login + ", id: " + userDetails.id
         );
         resp.end();
+        console.log('done with request')
       })
       .catch((err) => {
         console.log(err);

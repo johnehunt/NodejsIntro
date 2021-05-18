@@ -81,4 +81,4 @@ controller
     console.log("Problem starting Mongodb connection - server not started");
   });
 
-module.exports = app; // For tsting purposes
+module.exports = app; // For testing purposes

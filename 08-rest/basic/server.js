@@ -25,7 +25,7 @@ users[0] = { id: 0, name: "Jasmine Jones" };
 users[1] = { id: 1, name: "Adam Smith" };
 
 // Get a user by id
-app.get("/user/:id", (req, res) => {
+app.get("/users/:id", (req, res) => {
   res.json({
     id: req.params.id,
     name: "John Hunt",

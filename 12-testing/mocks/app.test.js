@@ -36,14 +36,14 @@ describe("testing the getIndexPage function", function () {
         // Call the function for us to test
         getIndexPage(req, res);
 
-        // assert that the stub isLoggedInStub is called at least once
+        // assert that the stub isLoggedInStub is called once
         expect(isLoggedInStub.calledOnce).to.be.true;
 
         // check that `res.send` is called once
         expect(res.write.calledOnce).to.be.true;
 
         // check that the correct information was supplied
-        const result = "<h1>Hello</h1><p>Welcome</p>";
-        expect(res.write.firstCall.args[0]).to.equal(result);
+        const expectedResponse = "<h1>Hello</h1><p>Welcome</p>";
+        expect(res.write.firstCall.args[0]).to.equal(expectedResponse);
     });
 });

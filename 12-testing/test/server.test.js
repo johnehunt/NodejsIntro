@@ -27,7 +27,11 @@ describe("Testing user REST API", function () {
       .end(function (err, res) {
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a("object");
+        const body = res.body;
+        body.should.be.a("object");
+        body.id.should.equal('321');
+        body.name.should.equal('John Hunt');
+        console.log(body);
         done();
       });
   });
@@ -68,6 +72,6 @@ describe("Testing user REST API", function () {
 
 
 after(function() {
-  console.log("Shutting doen server from test");
+  console.log("Shutting down server from test");
   process.exit(0);
 });

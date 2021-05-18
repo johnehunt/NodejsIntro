@@ -2,11 +2,12 @@
 var users = [];
 
 // Set up some initial data
-users[1] = { id: 1, name: "Jos Jones" };
+users[0] = { id: 0, name: "Jos Jones" };
 
 // Define models functions
 
 function getAllUsers() {
+  throw new Error('No user'); // Added just to throw an error
   return users;
 }
 

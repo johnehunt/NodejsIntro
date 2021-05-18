@@ -47,13 +47,14 @@ app.use("/api", router);
 // Define last, after other app.use() and routes calls
 // Note this function takes four arguments (err, req, res, next)
 function logErrors(err, req, res, next) {
-  console.error(err.stack);
+  console.log('LogErrors');
   next(err);
 }
 app.use(logErrors);
 
 // Can have more then one error handler
 app.use(function(err, req, res, next) {
+  console.log('Anonymous error logger');
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
@@ -61,6 +62,6 @@ app.use(function(err, req, res, next) {
 // Start listening on default Port
 app.listen(config.port, () => {
   console.log("Server Running - http://localhost:8080");
+  console.log("To see errors - http://localhost:8080/api/users");
 });
 
-module.exports = app; // For tsting purposes

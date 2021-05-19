@@ -39,7 +39,7 @@ describe("testing the getIndexPage function", function () {
         // assert that the stub isLoggedInStub is called once
         expect(isLoggedInStub.calledOnce).to.be.true;
 
-        // check that `res.send` is called once
+        // check that `res.write` is called once
         expect(res.write.calledOnce).to.be.true;
 
         // check that the correct information was supplied

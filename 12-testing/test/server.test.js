@@ -1,6 +1,7 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const should = chai.should();
+// Register the chai-heep module with core chai
 chai.use(chaiHttp);
 
 // Import server to be tested
@@ -31,7 +32,6 @@ describe("Testing user REST API", function () {
         body.should.be.a("object");
         body.id.should.equal('321');
         body.name.should.equal('John Hunt');
-        console.log(body);
         done();
       });
   });
@@ -41,7 +41,7 @@ describe("Testing user REST API", function () {
       .post(PATH)
       .send({ id: "321", name: "Phoebe Davies" })
       .end(function (err, res) {
-        res.should.have.status(200);
+        res.should.have.status(201);
         res.text.should.equal("User added");
         done();
       });

@@ -11,7 +11,7 @@ function postUser(req, res) {
   console.log("postUser", req.body);
   const user = req.body;
   Users.addUser(user);
-  res.send("User added");
+  res.status(201).send("User added");
 }
 
 function updateUser(req, res) {

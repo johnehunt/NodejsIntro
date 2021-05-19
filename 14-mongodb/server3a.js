@@ -17,7 +17,7 @@ function insertDocuments(err, client) {
     .insertMany(
       [
         { id: 111, name: "Adam Jones" },
-        { id: 222, name: "Jasmine Moore" },
+        { id: 222, name: "Jasmine Moore" }
       ])
     .then((result) => {
       console.log("Inserted 3 documents into the collection");

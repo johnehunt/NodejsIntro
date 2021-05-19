@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha 12-testing/basic/**/*.js",
+    "test-promise": "mocha 12-testing/promise/**/*.js",
     "start": "node ./server.js",
     "start-dev": "nodemon ./server.js"
   },
